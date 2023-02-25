@@ -6,6 +6,7 @@ $routes = [
     '/' => 'controllers/index.php',
     '/contact' => 'controllers/contact.php',
     '/about' => 'controllers/about.php',
+    '/db' => 'db.php',
 ];
 
 function routeToController($uri, $routes)

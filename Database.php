@@ -3,6 +3,7 @@
 class Database
 {
     public $connection;
+    public $statement;
 
     public function __construct($config, $username = 'root', $password = '')
     {
@@ -25,10 +26,29 @@ class Database
 
     public function query($query, $params = [])
     {
-        $prepared = $this->connection->prepare($query);
+        $this->statement = $this->connection->prepare($query);
 
-        $prepared->execute($params);
+        $this->statement->execute($params);
 
-        return $prepared;
+        return $this;
+    }
+
+    public function find()
+    {
+        return $this->statement->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function findOrFail()
+    {
+        $result = $this->statement->fetch();
+
+        if(!$result) abort(404);
+
+        return $result;
+    }
+
+    public function get()
+    {
+        return $this->statement->fetchAll();
     }
 }

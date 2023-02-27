@@ -19,3 +19,10 @@ function abort($code = 404)
     require("views/{$code}.view.php");
     die();
 }
+
+function authorize($condition, $status = Response::FORBIDDEN)
+{
+    if(!$condition) {
+        abort($status);
+    }
+}

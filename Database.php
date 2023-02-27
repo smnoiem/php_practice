@@ -23,11 +23,11 @@ class Database
         }
     }
 
-    public function query($query)
+    public function query($query, $params = [])
     {
         $prepared = $this->connection->prepare($query);
 
-        $prepared->execute();
+        $prepared->execute($params);
 
         return $prepared;
     }

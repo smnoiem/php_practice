@@ -2,7 +2,9 @@
 
 require "Database.php";
 
-$db = new Database();
+$config = require("config.php");
+
+$db = new Database($config['database'], 'root', 'bd7toRy5%');
 
 $post = $db->query("select * from posts where id = 1")->fetch(PDO::FETCH_ASSOC);
 

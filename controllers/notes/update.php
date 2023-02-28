@@ -12,16 +12,25 @@ if(!Validator::string($_POST['body'], 1, 1000)) {
     $errors['body'] = 'A body should be more than 1 and less than 1000 characters';
 }
 
+$currentUserId = 6;
+
+$note = $db->query("select * from notes where id = :id", [
+    'id' => $_POST['id'],
+])->findOrFail();
+
+authorize($note['user_id'] === $currentUserId);
+
 if(!empty($errors)) {
-    return view("notes/create.view.php", [
-        'heading' => 'Create Note',
+    return view("notes/edit.view.php", [
+        'heading' => 'Edit Note',
+        'note' => $note,
         'errors' => $errors,
     ]);
 }
 
-$db->query("INSERT INTO notes(body, user_id) VALUES(:body, :user_id)", [
+$db->query("UPDATE notes SET body = :body WHERE id = :id", [
+    'id' => $note['id'],
     'body' => $_POST['body'],
-    'user_id' => 6,
 ]);
 
 header('location: /notes');

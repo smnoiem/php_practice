@@ -1,6 +1,6 @@
 <?php
 
-$config = require("config.php");
+$config = require(base_path("config.php"));
 
 $db = new Database($config['database'], 'root', 'bd7toRy5%');
 

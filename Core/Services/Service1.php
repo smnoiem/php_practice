@@ -7,6 +7,10 @@ class Service1
     public $public = 'Public';
     protected $protected = 'Protected';
     private $private = "Private";
+
+    public const PUBLIC = 'Public const';
+    protected const PROTECTED = 'Protected const';
+    private const PRIVATE = "Private const";
     
     function printAll()
     {

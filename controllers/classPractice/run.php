@@ -14,6 +14,13 @@ function run()
 
     $service2->runAllMethods();
     $service2->runAllMethods2();
+
+    $service2->printConstants();
+
+    $service2 = new Service2('New Local Private');
+    $service2->printAll2();
+
+    $service2->accessOtherObject(new Service2('Other Local Private'));
 }
 
 run();

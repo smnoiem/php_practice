@@ -9,6 +9,7 @@ function run()
 
     echo $service2->printAll2();
     echo $service2->printAll();
+    echo $service2->getParentPrivateProperty();
 }
 
 run();

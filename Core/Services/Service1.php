@@ -14,4 +14,9 @@ class Service1
         echo $this->protected . ' <-- class1 <br>';
         echo $this->private . ' <-- class1 <br>';
     }
+
+    function getPrivate()
+    {
+        return $this->private;
+    }
 }

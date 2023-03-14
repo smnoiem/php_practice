@@ -13,4 +13,9 @@ class Service2 extends Service1
         echo $this->protected . ' <-- class2 <br>';
         echo $this->private . ' <-- class2 <br>';
     }
+
+    function getParentPrivateProperty()
+    {
+        echo $this->getPrivate() . ' <-- class2 <br>';
+    }
 }

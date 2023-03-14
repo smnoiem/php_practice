@@ -20,3 +20,5 @@ $router->get('/db', 'db.php');
 $router->get('/registration', 'controllers/registration/create.php');
 
 $router->post('/registration', 'controllers/registration/store.php');
+
+$router->get('/class-practice', 'controllers/classPractice/run.php');

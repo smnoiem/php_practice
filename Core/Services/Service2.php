@@ -18,4 +18,13 @@ class Service2 extends Service1
     {
         echo $this->getPrivate() . ' <-- class2 <br>';
     }
+
+    function runAllMethods2()
+    {
+        $this->runAllMethods(); //works
+
+        $this->testPublic();
+        $this->testProtected();
+        $this->testPrivate();
+    }
 }

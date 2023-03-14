@@ -19,4 +19,26 @@ class Service1
     {
         return $this->private;
     }
+
+    public function testPublic()
+    {
+        echo 'Service1::testPublic() <br>';
+    }
+
+    protected function testProtected()
+    {
+        echo 'Service1::testProtected() <br>';
+    }
+
+    private function testPrivate()
+    {
+        echo 'Service1::testPrivate() <br>';
+    }
+
+    function runAllMethods()
+    {
+        $this->testPublic();
+        $this->testProtected();
+        $this->testPrivate();
+    }
 }

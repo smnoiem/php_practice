@@ -22,3 +22,5 @@ $router->get('/registration', 'controllers/registration/create.php');
 $router->post('/registration', 'controllers/registration/store.php');
 
 $router->get('/class-practice', 'controllers/classPractice/run.php');
+
+$router->get('/oop/static', 'controllers/classPractice/run-static.php');
